@@ -1,0 +1,87 @@
+{@ 
+	if (!$layout_info->design_overlay_opacity)
+		$layout_info->design_overlay_opacity = "3";
+	if (!$layout_info->background_image_demo)
+		$layout_info->background_image_demo = "1";
+	if (!$layout_info->xe_content_opacity)
+		$layout_info->xe_content_opacity = "98";
+}
+<load target="css/style.css" />
+<header id="header" class="container">
+	<h1 class="header-brand">
+		<a href="<!--@if($layout_info->logo_url)-->{$layout_info->logo_url}<!--@else-->{getUrl('')}<!--@end-->">
+			<img src="{$layout_info->logo_img}" alt="" cond="$layout_info->logo_img"/> 
+			<!--@if($layout_info->demo != 'N')-->FULLY<!--@else-->{$layout_info->logo_text}<!--@end-->
+		</a>
+	</h1>
+	<ul class="f-nav">
+		<li loop="$global_menu->list=>$key1,$val1" class="active"|cond="$val1['selected']">
+			<a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'">{$val1['link']}</a>
+		</li>
+	</ul>
+	<hr class="clearfix" />
+</header>
+
+<div class="wrap">
+	<div class="wrap-inner">
+		<div class="container">
+			<article id="content">
+				<!--@if($act == 'dispMemberLoginForm')-->
+					<h1 class="f-title"><a href="{getUrl('', 'act', 'dispMemberLoginForm')}">{$lang->cmd_login}</a></h1>
+					<div class="f-login">
+						{$content}
+						<hr class="clearfix" />
+					</div>
+				<!--@elseif($layout_info->demo != 'N')-->
+					<h1 class="f-title">Hello, World!</h1>
+					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<p class="f-animate"><a href="httsp://www.wincomi.com" class="f-btn">More information</a></p>
+				<!--@else if($layout_info->xe_content == 'Y')-->
+					<h1 class="f-title" cond="$layout_info->xe_browser_title != 'N'"><a href="{getUrl('', 'mid', $module_info->mid)}">{$module_info->browser_title}</a></h1>
+					<block loop="$global_menu->list=>$key1,$val1" cond="$layout_info->xe_menu_desc != 'N'">
+						<p cond="$val1['selected'] && !$val1['list']" class="lead">{$val1['desc']}{@ break; }</p>
+					</block>
+					<div class="f-content" style="margin-top:65px"|cond="$layout_info->xe_browser_title == 'N'">
+						{$content}
+						<hr class="clearfix" />
+					</div>
+				<!--@else-->
+					<h1 class="f-title" cond="$layout_info->content_title">{$layout_info->content_title}</h1>
+					<p class="lead" cond="$layout_info->content_lead">{$layout_info->content_lead}</p>
+					{$layout_info->content_custom}
+					<p class="f-animate" cond="$layout_info->content_btn">
+						<a href="{$layout_info->content_btn_url}" class="f-btn">{$layout_info->content_btn}</a>
+						<a href="{$layout_info->content_btn2_url}" class="f-btn">{$layout_info->content_btn2}</a>
+					</p>
+				<!--@end-->
+			</article>
+			<footer class="f-footer">
+				<p class="f-copyright" cond="$layout_info->copyright_text && $layout_info->demo == 'N'">{$layout_info->copyright_text}</p>
+				<p class="f-copyright" cond="$layout_info->demo != 'N'">Copyright &copy; Wincomi.</p>
+				<p cond="!$is_logged && $layout_info->footer_login_link == 'Y'"><a href="{getUrl('act', 'dispMemberLoginForm')}">{$lang->cmd_login}</a></p>
+				<p cond="$is_logged && $layout_info->footer_login_link == 'Y'"><a href="{getUrl('act', 'dispMemberLogout')}">{$lang->cmd_logout}</a></p>
+				<p cond="$logged_info->is_admin == 'Y'"><a href="{getUrl('', 'module', 'admin')}">{$lang->cmd_management}</a></p>
+			</footer>
+		</div>
+	</div>
+</div>
+<div class="overlay"></div>
+<style>
+body{background-image:url("<!--@if(!$layout_info->background_image)-->{$layout_info->path}img/demo{$layout_info->background_image_demo}.jpg<!--@else-->{$layout_info->background_image}<!--@end-->");/* filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='', sizingMethod='scale');
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='', sizingMethod='scale')"; */}
+.overlay{background-color:rgba(0,0,0,.{$layout_info->design_overlay_opacity})}
+<!--@if($layout_info->animate != 'N')-->
+#header .header-brand, .f-nav, #content>h1, #content>.lead, #content .f-animate, .f-footer{
+	-webkit-animation-duration: 1s;
+			animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+			animation-fill-mode: both;
+	-webkit-animation-name: f-animate;
+			animation-name: f-animate
+}
+#content .f-animate {animation-delay: .5s;-webkit-animation-delay: .5s}
+#content .lead {animation-delay: .5s;-webkit-animation-delay: .5s}
+#content .f-content {animation-delay: 1s;-webkit-animation-delay: 1s;background-color:rgba(255,255,255,.{$layout_info->xe_content_opacity})}
+.f-footer {animation-delay: 1.5s;-webkit-animation-delay: 1.5s}
+<!--@end-->
+</style>

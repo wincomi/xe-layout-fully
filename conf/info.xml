@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+	<title xml:lang="ko">FULLY</title>
+	<description xml:lang="ko">배경 이미지 기반 레이아웃입니다.</description>
+	<version>0.5</version>
+	<date>2017-06-21</date>
+	<author email_address="admin@wincomi.com" link="https://www.wincomi.com/">
+		<name xml:lang="ko">윈컴이</name>
+	</author>
+	<menus>
+		<menu name="global_menu" maxdepth="1" default="true">
+			<title xml:lang="ko">메인 메뉴</title>
+		</menu>
+	</menus>
+	<extra_vars>
+		<group>
+			<title xml:lang="ko">기본</title>
+			<var name="demo" type="select">
+				<title xml:lang="ko">데모</title>
+				<description xml:lang="ko">레이아웃 데모를 사용합니다. (* 실제 사이트에서 사용할 경우 사용하지 않으셔야 합니다.)</description>
+				<options value="N">
+					<title xml:lang="ko">사용 안 함</title>
+				</options>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+			</var>
+			<var name="logo_img" type="image">
+				<title xml:lang="ko">사이트 로고 이미지</title>
+				<description xml:lang="ko">50px/50px의 흰색 png 파일을 추천합니다.</description>
+			</var>
+			<var name="logo_text" type="text">
+				<title xml:lang="ko">사이트 제목</title>
+				<description xml:lang="ko">로고 옆에 사이트 제목이 표시됩니다.</description>
+			</var>
+			<var name="logo_url" type="text">
+				<title xml:lang="ko">사이트 링크</title>
+				<description xml:lang="ko">로고를 클릭할 때 이동할 URL를 입력하세요.</description>
+			</var>
+			<var name="background_image_demo" type="select">
+				<title xml:lang="ko">배경 이미지</title>
+				<description xml:lang="ko">기본으로 제공되는 배경 이미지를 선택하실 수 있습니다.</description>
+				<options value="1">
+					<title xml:lang="ko">배경 1</title>
+				</options>
+				<options value="2">
+					<title xml:lang="ko">배경 2</title>
+				</options>
+				<options value="3">
+					<title xml:lang="ko">배경 3</title>
+				</options>
+				<options value="4">
+					<title xml:lang="ko">배경 4</title>
+				</options>
+			</var>
+			<var name="background_image" type="image">
+				<title xml:lang="ko">커스텀 배경 이미지</title>
+				<description xml:lang="ko">선택한 배경 이미지 대신 업로드한 배경 이미지가 사용됩니다.</description>
+			</var>
+		</group>
+		<group>
+			<title xml:lang="ko">메인 컨텐츠</title>
+			<var name="content_title" type="text">
+				<title xml:lang="ko">제목</title>
+				<description xml:lang="ko">메인 컨텐츠 화면은 XE 컨텐츠를 사용하지 않을 경우 출력됩니다.</description>
+			</var>
+			<var name="content_lead" type="text">
+				<title xml:lang="ko">제목 하단 텍스트</title>
+				<description xml:lang="ko">제목 하단에 표시될 텍스트를 입력하세요.</description>
+			</var>
+			<var name="content_custom" type="textarea">
+				<title xml:lang="ko">제목 하단 내용</title>
+				<description xml:lang="ko">HTML을 사용할 수 있습니다.</description>
+			</var>
+			<var name="content_btn" type="text">
+				<title xml:lang="ko">버튼1 텍스트</title>
+				<description xml:lang="ko">입력하지 않을 경우 버튼이 나타나지 않습니다.</description>
+			</var>
+			<var name="content_btn_url" type="text">
+				<title xml:lang="ko">버튼1 URL</title>
+				<description xml:lang="ko">버튼을 누르면 이동할 URL을 입력하세요.</description>
+			</var>
+			<var name="content_btn2" type="text">
+				<title xml:lang="ko">버튼2 텍스트</title>
+			</var>
+			<var name="content_btn2_url" type="text">
+				<title xml:lang="ko">버튼2 URL</title>
+			</var>
+		</group>
+		<group>
+			<title xml:lang="ko">XE 컨텐츠</title>
+			<var name="xe_content" type="select">
+				<title xml:lang="ko">XE 컨텐츠</title>
+				<description xml:lang="ko">메인 컨텐츠 대신 XE 컨텐츠(게시판 등)를 표시합니다.</description>
+				<options value="N">
+					<title xml:lang="ko">사용 안 함</title>
+				</options>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+			</var>
+			<var name="xe_browser_title" type="select">
+				<title xml:lang="ko">브라우저 제목</title>
+				<description xml:lang="ko">브라우저(페이지) 제목을 표시합니다.</description>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+				<options value="N">
+					<title xml:lang="ko">사용 안 함</title>
+				</options>
+			</var>
+			<var name="xe_menu_desc" type="select">
+				<title xml:lang="ko">메뉴 설명</title>
+				<description xml:lang="ko">브라우저 제목 하단에 메뉴 설명을 표시합니다.</description>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+				<options value="N">
+					<title xml:lang="ko">사용 안 함</title>
+				</options>
+			</var>
+		</group>
+
+		<group>
+			<title xml:lang="ko">디자인</title>
+			<var name="animate" type="select">
+				<title xml:lang="ko">애니메이션 효과</title>
+				<description xml:lang="ko">페이지 로딩시 애니메이션 효과를 사용합니다. (* 구 브라우저에서는 애니메이션 효과가 나오지 않을 수 있습니다.)</description>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+				<options value="N">
+					<title xml:lang="ko">사용 안 함</title>
+				</options>
+			</var>
+
+			<var name="xe_content_opacity" type="select">
+				<title xml:lang="ko">XE 컨텐츠 투명도</title>
+				<description xml:lang="ko">XE 컨텐츠 사용시 컨텐츠 배경을 약간 투명하게 설정하여 배경 이미지를 볼 수 있도록 설정합니다. (* 구 브라우저에서는 애니메이션 효과가 나오지 않을 수 있습니다.)</description>
+				<options value="98">
+					<title xml:lang="ko">98%</title>
+				</options>
+				<options value="95">
+					<title xml:lang="ko">95%</title>
+				</options>
+				<options value="90">
+					<title xml:lang="ko">90%</title>
+				</options>
+				<options value="100">
+					<title xml:lang="ko">100% (불투명)</title>
+				</options>
+			</var>
+			<var name="design_overlay_opacity" type="select">
+				<title xml:lang="ko">검정 오버레이</title>
+				<description xml:lang="ko">배경 이미지 위에 검정색 오버레이를 추가하여 텍스트를 더 잘 볼 수 있게 만듭니다.</description>
+				<options value="3">
+					<title xml:lang="ko">30% *</title>
+				</options>
+				<options value="1">
+					<title xml:lang="ko">10%</title>
+				</options>
+				<options value="2">
+					<title xml:lang="ko">20%</title>
+				</options>
+				<options value="4">
+					<title xml:lang="ko">40%</title>
+				</options>
+				<options value="5">
+					<title xml:lang="ko">50%</title>
+				</options>
+				<options value="6">
+					<title xml:lang="ko">60%</title>
+				</options>
+				<options value="7">
+					<title xml:lang="ko">70%</title>
+				</options>
+				<options value="0">
+					<title xml:lang="ko">사용 안 함 (0%)</title>
+				</options>
+			</var>
+			
+			<var name="copyright_text" type="textarea">
+				<title xml:lang="ko">푸터 저작권</title>
+				<description xml:lang="ko">HTML을 사용할 수 있습니다.</description>
+			</var>
+			<var name="footer_login_link" type="select">
+				<title xml:lang="ko">푸터 로그인 링크</title>
+				<description xml:lang="ko">푸터에 로그인 링크를 표시합니다.</description>
+				<options value="N">
+					<title xml:lang="ko">사용 안 함</title>
+				</options>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+			</var>
+		</group>
+	</extra_vars>
+</layout>
