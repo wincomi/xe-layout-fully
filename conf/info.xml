@@ -2,10 +2,10 @@
 <layout version="0.2">
 	<title xml:lang="ko">FULLY</title>
 	<description xml:lang="ko">배경 이미지 기반 레이아웃입니다.</description>
-	<version>0.5</version>
+	<version>0.5.1</version>
 	<date>2017-06-21</date>
 	<author email_address="admin@wincomi.com" link="https://www.wincomi.com/">
-		<name xml:lang="ko">윈컴이</name>
+		<name xml:lang="ko">코미 (a.k.a. 윈컴이)</name>
 	</author>
 	<menus>
 		<menu name="global_menu" maxdepth="1" default="true">
@@ -178,7 +178,7 @@
 					<title xml:lang="ko">사용 안 함 (0%)</title>
 				</options>
 			</var>
-			
+
 			<var name="copyright_text" type="textarea">
 				<title xml:lang="ko">푸터 저작권</title>
 				<description xml:lang="ko">HTML을 사용할 수 있습니다.</description>
